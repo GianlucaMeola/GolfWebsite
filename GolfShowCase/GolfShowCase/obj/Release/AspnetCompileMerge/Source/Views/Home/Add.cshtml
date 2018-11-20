@@ -1,0 +1,115 @@
+﻿@model GolfShowCase.Models.GolfVersion
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add New Golf Model</h2>
+@using (Html.BeginForm())
+{
+    //helps to protect against CDRF(Cross Site Request Forgery) attak
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Golf</h4>
+        <hr/>
+        @Html.ValidationSummary(true,"", new { @class = "text-danger"})
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.VersionName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.VersionName)
+                <span>&#8277</span>
+                @Html.ValidationMessageFor(g => g.VersionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.Image)
+                @Html.ValidationMessageFor(g => g.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.StartProduction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.StartProduction)
+                @Html.ValidationMessageFor(g => g.StartProduction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.EndProduction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.EndProduction)
+                @Html.ValidationMessageFor(g => g.EndProduction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.NumberMade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.NumberMade)
+                @Html.ValidationMessageFor(g => g.NumberMade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.StartingPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.StartingPrice)
+                @Html.ValidationMessageFor(g => g.StartingPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.FuelType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.FuelType)
+                @Html.ValidationMessageFor(g => g.FuelType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.EnginSize, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.EnginSize)
+                @Html.ValidationMessageFor(g => g.EnginSize, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.TopSpeed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.TopSpeed)
+                @Html.ValidationMessageFor(g => g.TopSpeed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.Accelleration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(g => g.Accelleration)
+                @Html.ValidationMessageFor(g => g.Accelleration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(g => g.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(g => g.Description)
+                @Html.ValidationMessageFor(g => g.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add New Golf Model" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })

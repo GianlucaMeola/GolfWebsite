@@ -1,0 +1,61 @@
+﻿@model GolfShowCase.Models.GolfVersion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Golf Model History</h2>
+
+<h4>Model Details</h4>
+<hr/>
+
+<div class="row">
+    <div class="col-md-3">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(g => g.VersionName)</dt>
+            <dd>@Html.DisplayFor(g => g.VersionName) </dd>
+
+            
+
+            <dt>@Html.DisplayNameFor(g => g.StartProduction)</dt>
+            <dd>@Html.DisplayFor(g => g.StartProduction) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.EndProduction)</dt>
+            <dd>@Html.DisplayFor(g => g.EndProduction) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.NumberMade)</dt>
+            <dd>@Html.DisplayFor(g => g.NumberMade) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.StartingPrice)</dt>
+            <dd>@Html.DisplayFor(g => g.StartingPrice) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.FuelType)</dt>
+            <dd>@Html.DisplayFor(g => g.FuelType) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.EnginSize)</dt>
+            <dd>@Html.DisplayFor(g => g.EnginSize) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.TopSpeed)</dt>
+            <dd>@Html.DisplayFor(g => g.TopSpeed) </dd>
+
+            <dt>@Html.DisplayNameFor(g => g.Accelleration)</dt>
+            <dd>@Html.DisplayFor(g => g.Accelleration) </dd>
+
+            
+        </dl>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(g => g.Image)</dt>
+            <dd><img src="@Url.Content(Model.Image)" style="width: 30vw;" /></dd>
+
+            <dt>@Html.DisplayNameFor(g => g.Description)</dt>
+            <dd>@Html.DisplayFor(g => g.Description) </dd>
+        </dl>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id= Model.id }, new { @class = "btn btn-primary" })  
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+</p>

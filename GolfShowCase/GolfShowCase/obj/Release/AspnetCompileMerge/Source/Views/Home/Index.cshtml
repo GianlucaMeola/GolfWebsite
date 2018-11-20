@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GolfShowCase.Models.GolfVersion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Volkswagen Golf History</h2>
+
+@*Link to add a new model, the firsty parameter is the text for the link and the secon parameter is the action method that it goes to *@
+
+@Html.ActionLink("Add a New Model", "Add", null, new { @class = "btn btn-success" })
+
+@using (Html.BeginForm())
+{
+    <p>
+        Year Of Release: @Html.DropDownList("YearOfRelease", "All")
+        Golf Version: @Html.TextBox("SearchString")
+        <input type="submit" class="btn btn-default" value="Filter" />
+    </p>
+}
+
+<table class="table">
+    @*column heading for the table*@
+    @*i will not put all the info in the table, just the most important, i will use the others info the the main page of the model*@
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor( model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VersionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndProduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberMade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingPrice)
+        </th>
+    </tr>
+
+    @foreach( var item in Model)
+    {
+        <tr>
+            <td><img src="@Url.Content(item.Image)" height="100"/></td>
+            <td>@Html.DisplayFor(g => item.VersionName)</td>
+            <td>@Html.DisplayFor(g => item.StartProduction)</td>
+            <td>@Html.DisplayFor(g => item.EndProduction)</td>
+            <td>@Html.DisplayFor(g => item.NumberMade)</td>
+            <td>@Html.DisplayFor(g => item.StartingPrice)</td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new { id = item.id }, new { @class ="btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
